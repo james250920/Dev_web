@@ -44,13 +44,23 @@ function LoginPage() {
           <h2>AdminPanel</h2>
           <p>Gestiona rendiciones, asistencia y tareos de tu equipo en un solo lugar.</p>
           <ul className="hero-features">
-            <li><ShieldCheck size={18} /> Aprobaciones controladas</li>
-            <li><Users size={18} /> Equipos y empleados</li>
-            <li><BarChart3 size={18} /> Exportes en CSV</li>
+            <li>
+              <ShieldCheck size={18} /> Aprobaciones controladas
+            </li>
+            <li>
+              <Users size={18} /> Equipos y empleados
+            </li>
+            <li>
+              <BarChart3 size={18} /> Exportes en CSV
+            </li>
           </ul>
         </section>
 
-        <form className="login-form" onSubmit={onSubmit} aria-label="Formulario de inicio de sesión">
+        <form
+          className="login-form"
+          onSubmit={onSubmit}
+          aria-label="Formulario de inicio de sesión"
+        >
           <h1>Iniciar sesión</h1>
           <p className="login-sub">Accede con tus credenciales de administrador.</p>
 

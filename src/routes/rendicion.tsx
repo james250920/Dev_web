@@ -11,7 +11,10 @@ export const Route = createFileRoute("/rendicion")({
   head: () => ({
     meta: [
       { title: "Rendición de Cuentas — AdminPanel" },
-      { name: "description", content: "Revisa, filtra y aprueba rendiciones de gastos del equipo." },
+      {
+        name: "description",
+        content: "Revisa, filtra y aprueba rendiciones de gastos del equipo.",
+      },
     ],
   }),
   component: RendicionPage,
@@ -32,7 +35,11 @@ function RendicionPage() {
   const filtered = useMemo(() => {
     if (!data) return [];
     return data.filter((r) => {
-      if (search && !`${r.title} ${r.description} ${r.id}`.toLowerCase().includes(search.toLowerCase())) return false;
+      if (
+        search &&
+        !`${r.title} ${r.description} ${r.id}`.toLowerCase().includes(search.toLowerCase())
+      )
+        return false;
       if (employee !== "all" && r.employee !== employee) return false;
       if (status !== "all" && r.status !== status) return false;
       if (from && r.date < from) return false;
@@ -65,9 +72,15 @@ function RendicionPage() {
             aria-label="Buscar"
           />
         </div>
-        <select value={employee} onChange={(e) => setEmployee(e.target.value)} aria-label="Empleado">
+        <select
+          value={employee}
+          onChange={(e) => setEmployee(e.target.value)}
+          aria-label="Empleado"
+        >
           <option value="all">Todos los empleados</option>
-          {api.getEmployees().map((e) => (<option key={e}>{e}</option>))}
+          {api.getEmployees().map((e) => (
+            <option key={e}>{e}</option>
+          ))}
         </select>
         <select value={status} onChange={(e) => setStatus(e.target.value)} aria-label="Estado">
           <option value="all">Todos los estados</option>
@@ -75,7 +88,12 @@ function RendicionPage() {
           <option>Aprobado</option>
           <option>Rechazado</option>
         </select>
-        <input type="date" value={from} onChange={(e) => setFrom(e.target.value)} aria-label="Desde" />
+        <input
+          type="date"
+          value={from}
+          onChange={(e) => setFrom(e.target.value)}
+          aria-label="Desde"
+        />
         <input type="date" value={to} onChange={(e) => setTo(e.target.value)} aria-label="Hasta" />
         <button className="btn-secondary" onClick={onExport} aria-label="Exportar CSV">
           <Download size={16} aria-hidden="true" /> Exportar
@@ -125,7 +143,11 @@ function RendicionPage() {
                   </tr>
                 ))}
                 {!filtered.length && (
-                  <tr><td colSpan={8} className="empty">Sin resultados con los filtros aplicados.</td></tr>
+                  <tr>
+                    <td colSpan={8} className="empty">
+                      Sin resultados con los filtros aplicados.
+                    </td>
+                  </tr>
                 )}
               </tbody>
             </table>

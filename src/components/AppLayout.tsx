@@ -36,7 +36,9 @@ export function AppLayout({ children, title }: { children: ReactNode; title: str
 
       <aside className={`sidebar ${mobileOpen ? "open" : ""}`} aria-label="Navegación principal">
         <div className="sidebar-brand">
-          <div className="brand-mark" aria-hidden="true">A</div>
+          <div className="brand-mark" aria-hidden="true">
+            A
+          </div>
           <div>
             <div className="brand-name">AdminPanel</div>
             <div className="brand-sub">Gestión de empleados</div>

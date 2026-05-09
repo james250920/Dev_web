@@ -11,7 +11,10 @@ export const Route = createFileRoute("/asistencia")({
   head: () => ({
     meta: [
       { title: "Asistencia — AdminPanel" },
-      { name: "description", content: "Registro y visualización de asistencia diaria del personal." },
+      {
+        name: "description",
+        content: "Registro y visualización de asistencia diaria del personal.",
+      },
     ],
   }),
   component: AsistenciaPage,

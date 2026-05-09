@@ -75,10 +75,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "AdminPanel — Gestión de empleados" },
-      { name: "description", content: "Panel administrativo para rendiciones, asistencia y tareos." },
+      {
+        name: "description",
+        content: "Panel administrativo para rendiciones, asistencia y tareos.",
+      },
       { name: "author", content: "AdminPanel" },
       { property: "og:title", content: "AdminPanel — Gestión de empleados" },
-      { property: "og:description", content: "Panel administrativo para rendiciones, asistencia y tareos." },
+      {
+        property: "og:description",
+        content: "Panel administrativo para rendiciones, asistencia y tareos.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
