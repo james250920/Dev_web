@@ -40,7 +40,6 @@ function LoginPage() {
     <div className="login-page">
       <div className="login-card">
         <section className="login-hero" aria-hidden="true">
-          <div className="hero-mark">A</div>
           <h2>AdminPanel</h2>
           <p>Gestiona rendiciones, asistencia y tareos de tu equipo en un solo lugar.</p>
           <ul className="hero-features">
