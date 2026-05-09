@@ -6,28 +6,33 @@ import Login from './pages/Login'
 import Rendicion from './pages/Rendicion'
 import Asistencia from './pages/Asistencia'
 import Tareos from './pages/Tareos'
-
-type View = 'rendicion' | 'asistencia' | 'tareos'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { ToastProvider } from './components/Toast'
 
 function App() {
   const [user, setUser] = useState<{ name: string } | null>(null)
-  const [view, setView] = useState<View>('rendicion')
-
-  if (!user) {
-    return <Login onLogin={(name) => setUser({ name })} />
-  }
 
   return (
-    <Layout
-      user={user}
-      onLogout={() => setUser(null)}
-      view={view}
-      onNavigate={(v) => setView(v)}
-    >
-      {view === 'rendicion' && <Rendicion />}
-      {view === 'asistencia' && <Asistencia />}
-      {view === 'tareos' && <Tareos />}
-    </Layout>
+    <BrowserRouter>
+      <ToastProvider>
+      <Routes>
+        {!user ? (
+          <>
+            <Route path="/login" element={<Login onLogin={(name) => setUser({ name })} />} />
+            <Route path="*" element={<Navigate to="/login" replace />} />
+          </>
+        ) : (
+          <>
+            <Route path="/" element={<Layout user={user} onLogout={() => setUser(null)}><Navigate to="/rendicion" replace /></Layout>} />
+            <Route path="/rendicion" element={<Layout user={user} onLogout={() => setUser(null)}><Rendicion /></Layout>} />
+            <Route path="/asistencia" element={<Layout user={user} onLogout={() => setUser(null)}><Asistencia /></Layout>} />
+            <Route path="/tareos" element={<Layout user={user} onLogout={() => setUser(null)}><Tareos /></Layout>} />
+            <Route path="*" element={<Navigate to="/rendicion" replace />} />
+          </>
+        )}
+      </Routes>
+      </ToastProvider>
+    </BrowserRouter>
   )
 }
 

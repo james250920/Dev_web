@@ -1,4 +1,4 @@
-import { RendicionItem, TareoItem, AsistenciaItem, Employee } from '../types/index'
+import type { RendicionItem, TareoItem, AsistenciaItem, Employee } from '../types/index'
 
 const employees: Employee[] = [
   { id: 'e1', name: 'Ana Pérez' },
